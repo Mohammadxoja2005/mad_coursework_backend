@@ -37,9 +37,9 @@ export class AppController {
 
     @Post("/update")
     async update(@Req() request: Request, @Res() response: Response) {
-        const {id, StockQuantity} = request.body;
+        const {id, stockQuantity} = request.body;
 
-        await this.db.collection("equipments").updateOne({_id: new ObjectId(id)}, {$set: {StockQuantity: StockQuantity}});
+        await this.db.collection("equipments").updateOne({_id: new ObjectId(id)}, {$set: {stockQuantity: stockQuantity}});
 
         response.json({message: "Equipment updated"});
     }
